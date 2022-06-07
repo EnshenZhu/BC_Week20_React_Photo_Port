@@ -7,11 +7,15 @@ import Nav from '..';
 afterEach(cleanup);
 
 // Add the describe function to declare what this test suite will be testing
-describe('Nav componet', () => (
+describe('Nav componet', () => {
     //baseline test
     it('renders', () => {
         render(<Nav />);
-    })
+    });
 
     //snapshot test
-));
+    it('mathces snapshot',()=>{
+        const {asFragment}=render(<Nav />);
+        expect(asFragment()).toMatchSnapshot();
+    });
+});
